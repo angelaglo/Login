@@ -21,6 +21,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.tgsbesar.myapplication.API.transaksiLaboratoriumAPI;
 import com.tgsbesar.myapplication.R;
+import com.tgsbesar.myapplication.database.Preferences;
+import com.tgsbesar.myapplication.menu_rawatInap.daftarRawatInapNext;
 import com.tgsbesar.myapplication.menu_rawatJalan.Dokter;
 import com.tgsbesar.myapplication.menu_rawatJalan.Input;
 import com.tgsbesar.myapplication.menu_rawatJalan.tampilRawatJalan;
@@ -42,12 +44,14 @@ import static com.android.volley.Request.Method.POST;
 
 public class laboratoriumNextActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
-    String jam, no_booking,email="stevani@yy.com" ,strDate;
+    String jam, no_booking,email,strDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laboratorium_next);
+        Preferences preferences = new Preferences(laboratoriumNextActivity.this.getApplicationContext());
+        email = preferences.getEmailNorm();
 
         Laboratorium lab = (Laboratorium) getIntent().getSerializableExtra("Laboratorium") ;
 

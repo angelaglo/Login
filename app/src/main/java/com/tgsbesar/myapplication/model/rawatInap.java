@@ -4,25 +4,25 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 public class rawatInap implements Serializable {
-    private com.tgsbesar.myapplication.model.user user;
+    private Profile Profile;
     private String kelas;
     private Calendar tanggal_masuk;
     private int no_pendaftaran;
 
-    public rawatInap(com.tgsbesar.myapplication.model.user user, String kelas, Calendar tanggal_masuk, int no_pendaftaran){
-        this.user = user;
+    public rawatInap(Profile Profile, String kelas, Calendar tanggal_masuk, int no_pendaftaran){
+        this.Profile = Profile;
         this.kelas = kelas;
         this.tanggal_masuk = tanggal_masuk;
         this.no_pendaftaran=no_pendaftaran;
 
     }
 
-    public com.tgsbesar.myapplication.model.user getUser() {
-        return user;
+    public Profile getProfile() {
+        return Profile;
     }
 
-    public void setUser(com.tgsbesar.myapplication.model.user user) {
-        this.user = user;
+    public void setProfile(Profile profile) {
+        this.Profile = profile;
     }
 
     public String getKelas() {

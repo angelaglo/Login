@@ -30,9 +30,9 @@ public class homeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        Preferences preferences = new Preferences(homeFragment.this.getContext());
-        norek = preferences.getKeyNorm();
         final MaterialTextView Norekam = view.findViewById(R.id.noRekam);
+        Preferences preferences = new Preferences(homeFragment.this.getContext());
+        norek = preferences.getEmailNorm();
         Norekam.setText("Halo, "+norek);
 
 

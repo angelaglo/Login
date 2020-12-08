@@ -72,6 +72,8 @@ public class Login extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful()){
                                         if(firebaseAuth.getCurrentUser().isEmailVerified()){
+                                            Preferences preferences = new Preferences(Login.this.getApplicationContext());
+                                            preferences.setEmailNorm(email);
                                             Intent i = new Intent(Login.this, MainActivity.class);
                                             startActivity(i);
                                         }else{

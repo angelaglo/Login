@@ -1,13 +1,13 @@
 package com.tgsbesar.myapplication.model;
 
-public class user {
+public class Profile {
     public String nama_lengkap;
     public String alamat;
     public String noTelp;
     public String gender;
     public int umur;
 
-    public user(String nama_lengkap, String alamat, String noTelp, String gender, int umur){
+    public Profile(String nama_lengkap, String alamat, String noTelp, String gender, int umur){
         this.nama_lengkap = nama_lengkap;
         this.alamat = alamat;
         this.noTelp = noTelp;

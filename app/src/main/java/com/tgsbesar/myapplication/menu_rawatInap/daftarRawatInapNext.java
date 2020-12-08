@@ -22,12 +22,14 @@ import com.android.volley.toolbox.Volley;
 import com.tgsbesar.myapplication.API.transaksiLaboratoriumAPI;
 import com.tgsbesar.myapplication.API.transaksiRInapAPI;
 import com.tgsbesar.myapplication.R;
+import com.tgsbesar.myapplication.database.Preferences;
 import com.tgsbesar.myapplication.menu_laboratorium.laboratoriumNextActivity;
 import com.tgsbesar.myapplication.menu_laboratorium.tampilLaboratorium;
 import com.tgsbesar.myapplication.menu_rawatJalan.Dokter;
 import com.tgsbesar.myapplication.menu_rawatJalan.Input;
 import com.tgsbesar.myapplication.menu_rawatJalan.tampilRawatJalan;
 import com.tgsbesar.myapplication.model.KelasKamar;
+import com.tgsbesar.myapplication.profile.profileFragment;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.json.JSONException;
@@ -44,11 +46,13 @@ import static com.android.volley.Request.Method.POST;
 
 public class daftarRawatInapNext extends AppCompatActivity {
 
-    String message,no_book,email="stevani@tubes.com",strDate;
+    String message,no_book,email,strDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_rawat_inap_next);
+        Preferences preferences = new Preferences(daftarRawatInapNext.this.getApplicationContext());
+        email = preferences.getEmailNorm();
 
         KelasKamar kmr = (KelasKamar) getIntent().getSerializableExtra("KelasKamar"); //1
 
@@ -152,8 +156,6 @@ public class daftarRawatInapNext extends AppCompatActivity {
                 params.put("harga_kamar", harga_kamar);
                 params.put("tgl_rinap", tgl_rinap);
                 params.put("email",email);
-
-
 
                 return params;
             }
